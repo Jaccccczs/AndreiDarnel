@@ -15,9 +15,14 @@ Route::middleware('auth')->group(function () {
 
     Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
 
-    //student management
-    Route::get('students', [\App\Http\Controllers\studentmngtController::class, 'index'])->name('student.index');
-    route::get('students/create', [\App\Http\Controllers\studentmngtController::class, 'create'])->name('student.create');
+    //student routes
+    Route::get('students', [\App\Http\Controllers\StudentController::class, 'index'])->name('students.index');
+    Route::get('students/create', [\App\Http\Controllers\StudentController::class, 'create'])->name('students.create');
+    Route::post('students', [\App\Http\Controllers\StudentController::class, 'store'])->name('students.store');
+    Route::get('students/{student}/edit', [\App\Http\Controllers\StudentController::class, 'edit'])->name('students.edit');
+    Route::put('students/{student}', [\App\Http\Controllers\StudentController::class, 'update'])->name('students.update');
+    Route::delete('students/{student}', [\App\Http\Controllers\StudentController::class, 'destroy'])->name('students.destroy');
+
 
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
