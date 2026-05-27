@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('studx_tblx', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('fname');
+            $table->string('mname');
+            $table->string('lname');
+            $table->string('address');
+            $table->date('dob');
             $table->timestamps();
         });
     }
