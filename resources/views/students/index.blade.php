@@ -22,10 +22,15 @@
                         <td>{{ $student->dob }}</td>
                         <td>
                             <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                            <a href="{{ route('students.delete', $student->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                            <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+@endsection 
